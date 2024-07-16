@@ -179,6 +179,9 @@ def main():
                      int(dataset.num_classes), args.num_layers,
                      args.dropout, args.model)
 
+    # parameter count for ogb submission
+    print(f"model parameter count: {sum(p.numel() for p in model.parameters())}")
+    print(f"model:{model}")
     run_graph_pred(args, model, dataset)
 
 
